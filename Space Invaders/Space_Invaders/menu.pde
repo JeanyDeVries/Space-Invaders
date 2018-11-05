@@ -1,4 +1,5 @@
 class Menu
 {
+  //use switches
   
 }

@@ -31,6 +31,7 @@ void update()
   player.outOfBounds();
   player.Shoot();
   player.renderBullets();
+  player.Collision();
   
   timer.checkTime();
   

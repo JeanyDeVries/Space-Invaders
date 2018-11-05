@@ -6,8 +6,8 @@ class Enemies
   {
     x = 0;
     y = 0;
-    size = 20;
-    speed = random(4, 8);
+    size = 40;
+    speed = random(4, 6);
   }
 
   void Render()
@@ -19,11 +19,19 @@ class Enemies
   void Movement()
   {
     x += speed;
-    
-    if(x > width - size || x < 0)
+    if(x >= width - size || x <= 0)
     {
-      x = -x;
-      y = y + 5;  
+      x -= x;
+      //x = 0;
+      y += 50;  
+    }
+  }
+  
+  void Collision(float bulletX, float bulletY, float bulletWidth, float bulletHeight)
+  {
+    if(bulletX >= this.x + enemies.size && bulletX <= this.x && bulletY >= this.y && bulletY <= this.y + enemies.size)
+    {
+      println("Collision");
     }
   }
 }

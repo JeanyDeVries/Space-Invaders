@@ -11,7 +11,7 @@ class Timer
   
   void checkTime()
   {
-    if(millis() - huidigeTijd > 300)
+    if(millis() - huidigeTijd > 1000)
     {
       huidigeTijd = millis();
       spawnBullet = true;

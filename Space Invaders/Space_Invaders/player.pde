@@ -54,6 +54,14 @@ class Player
     }
   }
   
+  void Collision()
+  {
+    for(Bullet bullets : bullets)
+    {
+      bullets.Collision();
+    }
+  }
+  
   void outOfBounds()
   {
     if(x < 0)
