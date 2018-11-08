@@ -28,6 +28,6 @@ class Bullet
   
   void Collision()
   {
-    enemies.Collision(this.x, this.y, Width, Height);
+    enemies.Collision(this.x, this.y);
   }
 }

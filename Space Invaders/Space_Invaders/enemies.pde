@@ -27,7 +27,7 @@ class Enemies
     }
   }
   
-  void Collision(float bulletX, float bulletY, float bulletWidth, float bulletHeight)
+  void Collision(float bulletX, float bulletY)
   {
     if(bulletX >= this.x + enemies.size && bulletX <= this.x && bulletY >= this.y && bulletY <= this.y + enemies.size)
     {

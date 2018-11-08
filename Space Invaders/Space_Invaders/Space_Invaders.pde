@@ -1,6 +1,9 @@
+//TODO: Make the game interactive with touch :D
+
 boolean keys[] = new boolean[256];
 Player player;
 Bullet bullet;
+
 Menu menu;
 Enemies enemies;
 Spawner spawner;
@@ -21,21 +24,21 @@ void setup()
 void draw()
 {
   background(255, 40, 80);
-  update();
+  menu.draw();
 }
 
 void update()
 {
-  player.Render();
-  player.Movement(keys);
-  player.outOfBounds();
-  player.Shoot();
-  player.renderBullets();
-  player.Collision();
+  //player.Render();
+  //player.Movement(keys);
+  //player.outOfBounds();
+  //player.Shoot();
+  //player.renderBullets();
+  //player.Collision();
   
-  timer.checkTime();
+  //timer.checkTime();
   
-  spawner.SpawnEnemies();
+  //spawner.SpawnEnemies();
 }
 
 void keyPressed()
