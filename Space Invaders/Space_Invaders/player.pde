@@ -7,13 +7,13 @@ class Player
   {
     x = width/2;
     y = 700;
-    size = 20;
+    size = 50;
     speed = 15;
   }
   
   void Render()
   {
-    fill(0);
+    fill(170, 70, 57);
     rect(x, y, size, size);
   }
   
@@ -51,14 +51,6 @@ class Player
     for(Bullet bullets : bullets)
     {
       bullets.Movement();
-    }
-  }
-  
-  void Collision()
-  {
-    for(Bullet bullets : bullets)
-    {
-      bullets.Collision();
     }
   }
   

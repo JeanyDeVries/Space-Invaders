@@ -1,8 +1,8 @@
-class Enemies
+class Enemy
 {
   float size,x,y,speed;
   
-  Enemies()
+  Enemy()
   {
     x = 0;
     y = 0;
@@ -12,7 +12,7 @@ class Enemies
 
   void Render()
   {
-    fill(90);
+    fill(170, 135, 57);
     rect(x, y, size, size);
   }
   
@@ -22,16 +22,7 @@ class Enemies
     if(x >= width - size || x <= 0)
     {
       x -= x;
-      //x = 0;
       y += 50;  
-    }
-  }
-  
-  void Collision(float bulletX, float bulletY)
-  {
-    if(bulletX >= this.x + enemies.size && bulletX <= this.x && bulletY >= this.y && bulletY <= this.y + enemies.size)
-    {
-      println("Collision");
     }
   }
 }

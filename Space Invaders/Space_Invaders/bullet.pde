@@ -17,17 +17,12 @@ class Bullet
   
   void Render()
   {
-    fill(0, random(255), random(255));
-    rect(x + 7.5, y, Width, Height);
+    fill(255);
+    rect(x + 7.5, y + 50, Width, Height);
   }
   
   void Movement()
   {
     this.y -= speed;
-  }
-  
-  void Collision()
-  {
-    enemies.Collision(this.x, this.y);
   }
 }

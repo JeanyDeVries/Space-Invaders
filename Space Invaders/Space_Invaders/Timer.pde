@@ -1,6 +1,7 @@
 class Timer
 {
   float huidigeTijd;
+  float tijd;
   boolean spawnBullet = false;
   boolean spawnEnemy = false;
   
@@ -14,8 +15,13 @@ class Timer
     if(millis() - huidigeTijd > 1000)
     {
       huidigeTijd = millis();
-      spawnBullet = true;
       spawnEnemy = true;
+    }
+    
+    if(millis() - tijd > 300)
+    {
+      tijd = millis();
+      spawnBullet = true;
     }
   }
 }

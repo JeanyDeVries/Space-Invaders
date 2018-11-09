@@ -5,7 +5,6 @@ Player player;
 Bullet bullet;
 
 Menu menu;
-Enemies enemies;
 Spawner spawner;
 Timer timer;
 
@@ -16,29 +15,21 @@ void setup()
   size(1280, 720);
   player = new Player();
   menu = new Menu();
-  enemies = new Enemies();
   spawner = new Spawner();
   timer = new Timer();
 }
 
-void draw()
-{
-  background(255, 40, 80);
-  menu.draw();
-}
-
 void update()
 {
-  //player.Render();
-  //player.Movement(keys);
-  //player.outOfBounds();
-  //player.Shoot();
-  //player.renderBullets();
-  //player.Collision();
   
-  //timer.checkTime();
+}
+
+void draw()
+{
+  update();
   
-  //spawner.SpawnEnemies();
+  background(37, 92, 105);
+  menu.draw();
 }
 
 void keyPressed()

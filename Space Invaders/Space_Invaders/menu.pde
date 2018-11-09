@@ -5,13 +5,17 @@ class Menu
   final int quit = 2;
   int state = stateMenu;
   
-  PImage button;
+  PImage buttonStart;
+  PImage buttonQuit;
+  PImage buttonOver;
   PFont font;
   
   Menu()
   {
     font = createFont("Font.ttf", 100);
-    button = loadImage("Button.png");
+    buttonStart = loadImage("Button.png");
+    buttonQuit = loadImage("Button.png");
+    buttonOver = loadImage("ButtonOver.png");
   }
   
   void draw()
@@ -37,12 +41,40 @@ class Menu
     int buttonY_Quit = height/2 + 125;
     int buttonWidth = 300;
     int buttonHeight = 100;
+    PImage startImage;
+    PImage quitImage;
+    
+    if(mouseX > buttonX && mouseX < buttonX + buttonWidth && mouseY > buttonY_Start && mouseY < buttonY_Start + buttonHeight)
+    {
+      startImage = buttonOver;
+      if(mousePressed)
+      {
+        state = game;
+      }
+    }
+    else
+    {
+      startImage = buttonStart;
+    }
+
+    if(mouseX > buttonX && mouseX < buttonX + buttonWidth && mouseY > buttonY_Quit && mouseY < buttonY_Quit + buttonHeight)
+    {
+      quitImage = buttonOver;
+      if(mousePressed)
+      {
+        state = quit;
+      }
+    }
+    else
+    {
+      quitImage = buttonQuit;
+    }
     
     background(70, 115, 134);
     fill(0);
     textSize(32);
-    image(button, buttonX, buttonY_Start, buttonWidth, buttonHeight);
-    image(button, buttonX, buttonY_Quit, buttonWidth, buttonHeight);
+    image(startImage, buttonX, buttonY_Start, buttonWidth, buttonHeight);
+    image(quitImage, buttonX, buttonY_Quit, buttonWidth, buttonHeight);
     
     textAlign(CENTER, CENTER);
     textFont(font);
@@ -51,20 +83,6 @@ class Menu
     textAlign(CENTER, TOP);
     text("Start",buttonX + buttonWidth/2, buttonY_Start + buttonHeight/4);
     text("Quit",buttonX + buttonWidth/2, buttonY_Quit + buttonHeight/4);
-    
-    if(mouseX > buttonX && mouseX < buttonX + buttonWidth && mouseY > buttonY_Start && mouseY < buttonY_Start + buttonHeight)
-    {
-      tint(150);
-      if(mousePressed)
-      {
-        state = game;
-      }
-    }
-    
-    if(mouseX > buttonX && mouseX < buttonX + buttonWidth && mouseY > buttonY_Quit && mouseY < buttonY_Quit + buttonHeight && mousePressed)
-    {
-      state = quit;
-    }
   }
   
   void showGame()
@@ -74,11 +92,23 @@ class Menu
     player.outOfBounds();
     player.Shoot();
     player.renderBullets();
-    player.Collision();
     
     timer.checkTime();
     
     spawner.SpawnEnemies();
+    
+    //Collision
+    for(Enemy enemy : spawner.enemy)
+    {
+      for(Bullet bullet : player.bullets)
+      {
+        if(bullet.x <= enemy.x + enemy.size && bullet.x >= enemy.x && bullet.y >= enemy.y && bullet.y <= enemy.y + enemy.size)
+        {
+          //doe nog de size van de bullet erbij
+          spawner.collision = true;
+        }
+      }
+    }
   }
   
   void quitGame()
