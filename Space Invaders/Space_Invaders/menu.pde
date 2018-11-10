@@ -1,5 +1,5 @@
 class Menu
-{
+{ 
   final int stateMenu = 0;
   final int game = 1;
   final int quit = 2;
@@ -98,16 +98,21 @@ class Menu
     spawner.SpawnEnemies();
     
     //Collision
-    for(Enemy enemy : spawner.enemy)
+    for(int i = 0; i < spawner.enemy.size(); i++)
     {
-      for(Bullet bullet : player.bullets)
+      for(int t = 0; t < player.bullets.size(); t++)
       {
-        if(bullet.x <= enemy.x + enemy.size && bullet.x >= enemy.x && bullet.y >= enemy.y && bullet.y <= enemy.y + enemy.size)
+        if(player.bullets.get(t).x <= spawner.enemy.get(i).x + spawner.enemy.get(i).size &&
+          player.bullets.get(t).x >= spawner.enemy.get(i).x &&
+          player.bullets.get(t).y >= spawner.enemy.get(i).y &&
+          player.bullets.get(t).y <= spawner.enemy.get(i).y + spawner.enemy.get(i).size)
         {
-          //doe nog de size van de bullet erbij
-          spawner.collision = true;
+          enemySound.rewind();
+          enemySound.play();
+          spawner.enemy.remove(i);
+          player.bullets.remove(t);
         }
-      }
+      }      
     }
   }
   

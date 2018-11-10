@@ -12,7 +12,7 @@ class Bullet
     this.x = x;
     Width = 10;
     Height = 15;
-    this.speed = 15;
+    this.speed = 20;
   }
   
   void Render()

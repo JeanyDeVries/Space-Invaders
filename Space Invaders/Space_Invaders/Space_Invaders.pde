@@ -1,4 +1,7 @@
 //TODO: Make the game interactive with touch :D
+import ddf.minim.*;
+AudioPlayer enemySound;
+Minim minim;
 
 boolean keys[] = new boolean[256];
 Player player;
@@ -17,6 +20,9 @@ void setup()
   menu = new Menu();
   spawner = new Spawner();
   timer = new Timer();
+  
+  minim = new Minim(this);
+  enemySound = minim.loadFile("Fart.mp3", 2048);
 }
 
 void update()

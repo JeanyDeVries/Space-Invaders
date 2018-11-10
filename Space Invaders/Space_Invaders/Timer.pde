@@ -18,7 +18,7 @@ class Timer
       spawnEnemy = true;
     }
     
-    if(millis() - tijd > 300)
+    if(millis() - tijd > 200)
     {
       tijd = millis();
       spawnBullet = true;
