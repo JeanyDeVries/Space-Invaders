@@ -1,6 +1,7 @@
 class Spawner
 {
   ArrayList<Enemy> enemy = new ArrayList<Enemy>();
+  boolean death = false;
 
   Spawner()
   {

@@ -27,7 +27,10 @@ void setup()
 
 void update()
 {
-  
+  if(spawner.death)
+  {
+    spawner.death = false;
+  }
 }
 
 void draw()

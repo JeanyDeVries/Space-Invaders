@@ -109,6 +109,7 @@ class Menu
         {
           enemySound.rewind();
           enemySound.play();
+          spawner.death = true;
           spawner.enemy.remove(i);
           player.bullets.remove(t);
         }
@@ -116,7 +117,7 @@ class Menu
     }
   }
   
-  void quitGame()
+s  void quitGame()
   {
     exit(); 
   }
